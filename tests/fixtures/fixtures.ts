@@ -1,18 +1,18 @@
 import { test as base } from '@playwright/test';
-import { LoginSteps } from '../steps/loginSteps';
-import { SignUpSteps } from '../steps/signUpSteps';
+import { LoginFlows } from '../flows/loginFlows';
+import { SignUpFlows } from '../flows/signUpFlows';
 
 export const test = base.extend<{ 
-    loginSteps: LoginSteps
-    signUpSteps: SignUpSteps,
+    loginFlows: LoginFlows
+    signUpFlows: SignUpFlows,
     
 }>({
-    loginSteps: async ({page}, use) => {
-        const loginSteps = new LoginSteps(page);
-        await use(loginSteps);
+    loginFlows: async ({page}, use) => {
+        const loginFlows = new LoginFlows(page);
+        await use(loginFlows);
     },
-    signUpSteps: async ({page}, use) => {
-        const signUpSteps = new SignUpSteps(page);
-        await use(signUpSteps);
+    signUpFlows: async ({page}, use) => {
+        const signUpFlows = new SignUpFlows(page);
+        await use(signUpFlows);
     }
 });

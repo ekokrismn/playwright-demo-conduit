@@ -1,7 +1,7 @@
 import { Page } from '@playwright/test';
 import { ConduitLoginPage } from '../pages/loginPage';
 
-export class LoginSteps {
+export class LoginFlows {
   readonly loginPage: ConduitLoginPage;
   readonly page: Page;
 

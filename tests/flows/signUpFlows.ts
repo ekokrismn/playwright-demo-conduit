@@ -2,7 +2,7 @@
 import { Page } from '@playwright/test';
 import { ConduitSignUpPage } from '../pages/signupPage';
 
-export class SignUpSteps {
+export class SignUpFlows {
   readonly signUpPage: ConduitSignUpPage;
   readonly page: Page;
 
