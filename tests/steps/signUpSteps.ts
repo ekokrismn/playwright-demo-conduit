@@ -1,5 +1,5 @@
 // steps/signUpSteps.ts
-import { expect, Page } from '@playwright/test';
+import { Page } from '@playwright/test';
 import { ConduitSignUpPage } from '../pages/signupPage';
 
 export class SignUpSteps {
@@ -11,38 +11,11 @@ export class SignUpSteps {
     this.signUpPage = new ConduitSignUpPage(page);
   }
 
-  async goToConduitPage() {
-    await this.page.goto('/');
-    await this.page.waitForLoadState('networkidle');
-  }
-
-  async goToSignUpPage() {
-    await this.signUpPage.navigateToSignUpPageButton.click();
-    await this.page.waitForLoadState('networkidle');
-  }
-
-  async fillSignUpForm() {
-    const username: string = 'demousereko';
-    const email: string = 'demoekoemail@mail.com';
-    const password: string = 'demopasswordeko';
-    await this.signUpPage.usernameField.fill(username);
-    await this.signUpPage.emailField.fill(email);
-    await this.signUpPage.passwordField.fill(password);
-  }
-
-  async assertHeaders() {
-    await expect(this.signUpPage.headersPageTitle).toBeVisible();
-  }
-
-  async submitSignUp() {
-    await this.signUpPage.signUpButton.click();
-  }
-
   async successfulSignUpFlow() {
-    await this.goToConduitPage();
-    await this.goToSignUpPage();
-    await this.assertHeaders();
-    await this.fillSignUpForm();
-    await this.submitSignUp();
+    await this.signUpPage.goToConduitPage();
+    await this.signUpPage.goToSignUpPage();
+    await this.signUpPage.assertHeaders();
+    await this.signUpPage.fillSignUpForm();
+    await this.signUpPage.submitSignUp();
   }
 }
